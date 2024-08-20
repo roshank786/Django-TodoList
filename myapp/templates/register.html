@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8 p-3 border rounded shadow">
+                <h3>Register</h3>
+                {%if messages%}
+                {% for m in messages %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>{{m}}</strong> You should check in on some of those fields below.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {%endfor%}
+                {%endif%}
+                <form action="" method="post">
+                    {%csrf_token%}
+                    {{form}}
+                    <button type="submit">Register</button>
+                    Already a User? <a href="{%url 'signin'%}">Sign In</a>
+                </form>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+</body>
+
+</html>

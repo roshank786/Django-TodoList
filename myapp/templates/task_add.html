@@ -1,0 +1,17 @@
+{%extends 'base.html'%}
+{%block main_block%}
+<div class="container">
+    <div class="row p-5">
+        <div class="col-4"></div>
+        <div class="col-4 p-2 border rounded">
+            <h3>Add Task</h3>
+            <form action="" method="post">
+                {%csrf_token%}
+                {{form}}
+                <button type="submit">Add</button>
+            </form>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+{%endblock%}

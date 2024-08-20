@@ -1,0 +1,42 @@
+{%extends 'base.html'%}
+{%block main_block%}
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-1"></div>
+            <div class="col-10 border rounded">
+                <table class="table">
+                    <tr>
+                        <th>Title</th>
+                        <th>Status</th>
+                        <th>Created date</th>
+                        <th>Due date</th>
+                        <th>User</th>
+                        <th>Actions</th>
+                    </tr>
+                    {% for e in list %}
+                    <tr>
+                        <td>{{e.title}}</td>
+                        <td>
+                            {% if e.status == False %}
+                            Due
+                            {%else%}
+                            Completed
+                            {%endif%}
+                        </td>
+                        <td>{{e.created_date}}</td>
+                        <td>{{e.due_date}}</td>
+                        <td>{{e.user_object}}</td>
+                        <td class="d-flex">
+                            <a href="{%url 'task-edit' e.id%}" class="btn btn-outline-warning mx-2">Edit</a>
+                            <a href="" class="btn btn-outline-danger">Delete</a>
+                        </td>
+
+                    </tr>
+                    {%endfor%}
+                </table>
+            </div>
+            <div class="col-1">
+            </div>
+        </div>
+    </div>
+{%endblock%}
