@@ -164,3 +164,14 @@ class TaskEditView(View):
         
         else:
             return render(request,"task_edit.html",{"form":form_instance})
+
+
+class TaskDeleteView(View):
+
+    def get(self,request,*args,**kwargs):
+
+        id=kwargs.get("pk")
+
+        Task.objects.get(id=id).delete()
+
+        return redirect("task-list")

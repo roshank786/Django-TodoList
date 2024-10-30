@@ -34,6 +34,8 @@ urlpatterns = [
 
     path("task/<int:pk>/change/",views.TaskEditView.as_view(),name="task-edit"),
 
+    path("task/<int:pk>/remove/",views.TaskDeleteView.as_view(),name="task-delete")
+
     
 
 
